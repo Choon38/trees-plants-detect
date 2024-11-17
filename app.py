@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from inference_sdk import InferenceHTTPClient
 import json
+import os
 
 # Initialize the Inference Client
 CLIENT = InferenceHTTPClient(
@@ -43,4 +44,4 @@ def predict():
                            predictions=result['predictions'])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))

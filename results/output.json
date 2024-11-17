@@ -1,30 +1,20 @@
 {
-    "inference_id": "88f92b03-d12e-47f3-b69d-4097a3a7d918",
-    "time": 0.08964250999997603,
+    "inference_id": "c1f7061a-526a-4d62-938d-1bc2d08b2178",
+    "time": 0.14886283700070635,
     "image": {
-        "width": 300,
-        "height": 168
+        "width": 168,
+        "height": 300
     },
     "predictions": [
         {
-            "x": 143.0,
-            "y": 120.0,
-            "width": 266.0,
-            "height": 76.0,
-            "confidence": 0.57169109582901,
-            "class": "Banyan-Tree",
-            "class_id": 14,
-            "detection_id": "a1bc659e-3b3f-4a79-bc23-6a68a69e8b7c"
-        },
-        {
-            "x": 154.5,
-            "y": 87.0,
-            "width": 291.0,
-            "height": 144.0,
-            "confidence": 0.40932413935661316,
-            "class": "Acacia",
-            "class_id": 1,
-            "detection_id": "53e127bd-f99f-4d5f-87a7-dc38bbbd7293"
+            "x": 82.5,
+            "y": 152.0,
+            "width": 161.0,
+            "height": 288.0,
+            "confidence": 0.6479648351669312,
+            "class": "Mango-Tree",
+            "class_id": 46,
+            "detection_id": "83ee1b9d-9a2e-4432-ac77-11cf280c9332"
         }
     ]
 }
