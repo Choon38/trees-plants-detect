@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Species Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold text-center mb-6">Tree Species Detection</h1>
+        
+        <form action="/predict" method="post" enctype="multipart/form-data" class="bg-gray-800 p-4 rounded-lg shadow-md">
+            <input type="file" name="image" accept="image/*" required class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-l-lg file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700 mb-4"/>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg transition duration-300">Detect</button>
+        </form>
+
+        <div id="result" class="result mt-6">
+            {% if predictions %}
+                <h2 class="text-xl font-semibold mb-2">Detection Results:</h2>
+                <p><strong>Inference ID:</strong> {{ inference_id }}</p>
+                <p><strong>Time Taken:</strong> {{ time }} seconds</p>
+                <div class="predictions mt-4 space-y-4">
+                    {% for prediction in predictions %}
+                        <div class="prediction bg-gray-700 p-4 rounded-lg shadow-md">
+                            <h3 class="text-lg font-medium">Species: {{ prediction.class }}</h3>
+                            <p><strong>Confidence:</strong> {{ prediction.confidence | round(2) * 100 }}%</p>
+                            <p><strong>Coordinates:</strong> ({{ prediction.x }}, {{ prediction.y }})</p>
+                            <p><strong>Dimensions:</strong> {{ prediction.width }} x {{ prediction.height }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="mt-4 text-gray-400">No results to display.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Optional: Add JavaScript for dark mode toggle -->
+    <script>
+        // Example script to toggle dark mode (if needed)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+            });
+        }
+    </script>
+</body>
+</html>
